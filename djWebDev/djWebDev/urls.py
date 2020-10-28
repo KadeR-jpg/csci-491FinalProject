@@ -21,8 +21,8 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('storyGenerator/', include('storyGenerator.urls')),
-    path('', RedirectView.as_view(url='storyGenerator', permanent=True)),
+    path('^admin/', admin.site.urls),
+    path('^storyGenerator/', include('storyGenerator.urls')),
+    path('', RedirectView.as_view(url='storyGenerator', permanent=False)),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
