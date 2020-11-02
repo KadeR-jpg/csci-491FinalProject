@@ -1,20 +1,29 @@
 /*Colors
-main(Off-White)- #F6F7EB
+main(Off-White)- #AEA4BF
 Secondary(Gold WHeat)- #8E8358
 Accent(Light-red)- #E94F37
 Secondary-Accent(Blueish)- #3F88C5
 
 */
 html {
-    font-family: 'Changa', sans-serif;
-    background-color: #F6F7EB;
+    font-family: 'Trispace', sans-serif;
+    background-image: url("paperBCK.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+body, html {
+    height: 100%;
 }
 
 #title {
-    font-size: 40px;
-    justify-content: center;
+    font-size: clamp(1em, calc(.75em + 1vw), 2em);
+    justify-content: left;
     display: flex;
 }
+
+
 /*navbar rules*/
 .topNav {
     display: flex;
@@ -28,26 +37,30 @@ html {
     text-align: center;
     padding: 14px;
     text-decoration: none;
-    font-size: 17px;
+    font-size: clamp(.5em, calc(.5em + 1vw), 1.25em);
 }
 
 .topNav a:hover {
-    text-decoration: underline;
-    color: black;
+    color: #F6F7EB;
+    /*text-decoration: underline;*/
+    /*color: black;*/
 }
+
 /*end of navbar rules*/
 
 
 /* content wrapper to keep everything pretty */
 .content {
+    border-radius: 3px;
     padding: 15px;
     margin: 5px 0 5px 0;
-    border-radius: 10px;
-    background-color: #53917E;
+    background-color: #575A4B;
 }
+
 /*Start Form rules*/
 .storyForm {
     display: flex;
+    color: #F6F7EB;
     flex-direction: column;
     justify-content: left;
     padding: 12px;
@@ -55,22 +68,18 @@ html {
 
 .storyForm label {
     display: flex;
-    align-content: center;
-    align-items: center;
-    justify-content: center;
-    color: black;
-}
-
-.storyForm input {
-    min-width: 180px;
-    max-width: 380px;
-    display: flex;
+    flex-direction: row;
+    padding: 5px;
+    justify-content: space-evenly;
+    color: #F6F7EB;
 }
 
 .storyForm .txtInput {
+    min-width: 180px;
+    max-width: 380px;
+    width: clamp(100px, 50%, 880px);
     padding: 5px 5px;
     align-self: center;
-    width: 90vw;
 }
 
 .storyForm .submitButton-wrapper {
@@ -78,7 +87,7 @@ html {
     display: flex;
     justify-content: center;
     align-self: center;
-    font-family: 'Changa', sans-serif;
+    font-family: 'Trispace', sans-serif;
     font-size: 14px;
 }
 
@@ -88,12 +97,13 @@ html {
     padding: 5px 5px 5px;
     width: 180px;
     font-family: inherit;
-    animation: 500ms infinite alternate;
 }
 
 .submitButton:hover {
+
     text-decoration: underline;
 }
+
 /*end form rules*/
 
 /*styling story gen links*/
