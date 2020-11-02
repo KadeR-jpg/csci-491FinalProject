@@ -1,7 +1,5 @@
 from django.db import models
 
-<<<<<<< HEAD
-
 class Story(models.Model):
     protagonist = models.CharField(max_length=30)
     antagonist = models.CharField(max_length=30)
@@ -15,10 +13,8 @@ class Story(models.Model):
     plot = models.CharField(max_length=30)
     conflict = models.CharField(max_length=30)
     genre = models.CharField(max_length=60)
-=======
-# Create your models here.
 
-
+'''
 class Genre(models.Model):
     """Story genre"""
     name = models.CharField(max_length=200, help_text='Enter a genre for your story (e.g. Fantasy)')
@@ -52,4 +48,4 @@ class WordSet(models.Model):
     adjectives = models.TextField()
 
     story = models.ForeignKey('BlankStory',on_delete=models.SET_NULL,null=True)
->>>>>>> 6febd724a5c6788242079bfd3a1be9f6bda069db
+'''
