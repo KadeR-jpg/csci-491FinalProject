@@ -1,41 +1,99 @@
- /* Dropdown Button */
-.dropbtn {
-  background-color: #4CAF50;
-  color: white;
-  padding: 16px;
-  font-size: 16px;
-  border: none;
+/*Colors
+main(Off-White)- #F6F7EB
+Secondary(Gold WHeat)- #8E8358
+Accent(Light-red)- #E94F37
+Secondary-Accent(Blueish)- #3F88C5
+
+*/
+html {
+    font-family: 'Changa', sans-serif;
+    background-color: #F6F7EB;
 }
 
-/* The container <div> - needed to position the dropdown content */
-.dropdown {
-  position: relative;
-  display: inline-block;
+#title {
+    font-size: 40px;
+    justify-content: center;
+    display: flex;
+}
+/*navbar rules*/
+.topNav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    overflow: hidden;
 }
 
-/* Dropdown Content (Hidden by Default) */
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f1f1f1;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
+.topNav a {
+    color: black;
+    text-align: center;
+    padding: 14px;
+    text-decoration: none;
+    font-size: 17px;
 }
 
-/* Links inside the dropdown */
-.dropdown-content a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
+.topNav a:hover {
+    text-decoration: underline;
+    color: black;
+}
+/*end of navbar rules*/
+
+
+/* content wrapper to keep everything pretty */
+.content {
+    padding: 15px;
+    margin: 5px 0 5px 0;
+    border-radius: 10px;
+    background-color: #53917E;
+}
+/*Start Form rules*/
+.storyForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    padding: 12px;
 }
 
-/* Change color of dropdown links on hover */
-.dropdown-content a:hover {background-color: #ddd;}
+.storyForm label {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    color: black;
+}
 
-/* Show the dropdown menu on hover */
-.dropdown:hover .dropdown-content {display: block;}
+.storyForm input {
+    min-width: 180px;
+    max-width: 380px;
+    display: flex;
+}
 
-/* Change the background color of the dropdown button when the dropdown content is shown */
-.dropdown:hover .dropbtn {background-color: #3e8e41;}
+.storyForm .txtInput {
+    padding: 5px 5px;
+    align-self: center;
+    width: 90vw;
+}
+
+.storyForm .submitButton-wrapper {
+    padding: 15px 25px;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    font-family: 'Changa', sans-serif;
+    font-size: 14px;
+}
+
+.storyForm .submitButton {
+    border-style: none;
+    display: inline-block;
+    padding: 5px 5px 5px;
+    width: 180px;
+    font-family: inherit;
+    animation: 500ms infinite alternate;
+}
+
+.submitButton:hover {
+    text-decoration: underline;
+}
+/*end form rules*/
+
+/*styling story gen links*/

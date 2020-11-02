@@ -1,10 +1,32 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends 'storyGenerator/index.html' %}
+
+{% block sgPrev %}
+    <a href="#" class="previous">&laquo; Previous Story</a>
+{% endblock sgPrev %}
+{% block sgNext %}
+    <a href="#" class="next">Next Story &raquo;</a>
+{% endblock sgNext %}
+
+{% block generation %}
+    <form class="storyForm">
+        <label for="genre">Genre:</label>
+        <input class="txtInput" type="text" id="genre" name="genre"><br>
+        <label for="conflict">Conflict:</label>
+        <input class="txtInput" type="text" id="conflict" name="conflict"><br>
+        <label for="resolution">Resolution:</label>
+        <input class="txtInput" type="text" id="resolution" name="resolution"><br>
+        <label for="protagonist">Protagonist:</label>
+        <input class="txtInput" type="text" id="protagonist" name="protagonist"><br>
+        <label for="adjective">Adjective:</label>
+        <input class="txtInput" type="text" id="adjective" name="adjective"><br>
+        <label for="propernoun">Proper Noun:</label>
+        <input class="txtInput" type="text" id="propernoun" name="propernoun"><br>
+        <label for="adverb">Adverb:</label>
+        <input class="txtInput" type="text" id="adverb" name="adverb"><br>
+        <label for="noun">Noun:</label>
+        <input class="txtInput" type="text" id="noun" name="noun"><br>
+        <div class="submitButton-wrapper">
+            <button class="submitButton" type="button">Generate Story</button>
+        </div>
+    </form>
+{% endblock generation %}

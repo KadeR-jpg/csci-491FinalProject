@@ -8,4 +8,9 @@ def index(request):
     return render(request, 'storyGenerator/index.html')
 
 
+def about(request):
+    return render(request, 'storyGenerator/about.html')
+
+def storyGen(request):
+    return render(request, 'storyGenerator/storyGen.html')
 

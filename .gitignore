@@ -11,3 +11,5 @@ htmlcov
 
 .projectile
 *.pyc
+djWebDev/djWebDev/__pycache__/
+djWebDev/templates/

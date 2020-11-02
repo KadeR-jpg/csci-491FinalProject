@@ -1,25 +1,35 @@
 {% load static %}
-<link rel="stylesheet" type="text/css" href="{% static 'storyGenerator/index.css' %}">
 <!doctype html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" type="text/css" href="{% static 'storyGenerator/index.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Changa&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
-<header>Interactive Story Generator</header>
-<body>
-<div class="dropdown">
-    <button class="dropbtn">Dropdown</button>
-    <div class="dropdown-content">
-        <a href="#">Generator</a>
-        <a href="#">Previous Stories</a>
-        <a href="#">Submit a Story</a>
-        <a href="#">Stuff 4</a>
-        <a href="#">Stuff 5</a>
+<header>
+    <h1 id="title">Interactive Story Generator</h1>
+    <div class="topNav">
+        <a href="{% url 'index' %}">Home</a>
+        {% block sgPrev %}{% endblock sgPrev %}
+        <a href="{% url 'storyGen' %}" class="storyGen">Story Generator</a>
+        {% block sgNext %}{% endblock sgNext %}
+        <a href="{% url 'about' %}" class="about">About</a>
     </div>
+</header>
+<body>
+<div class="content">
+    {% block homeContent %}
+    {% endblock homeContent %}
+    {% block generation %}
+    {% endblock generation %}
+    {% block about %}
+    {% endblock about %}
 </div>
 </body>
+<footer>
+</footer>
 </html>
