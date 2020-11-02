@@ -1,11 +1,101 @@
 body {
     border-style: solid;
-    max-width: 800px;
+    width: 80%;
     margin: auto;
+    background-image: url(images/27603_anime_scenery_blue_sky.jpg);
+}
+
+#content{
+    background-color: beige;
+    height: 900px;
 }
 
 .header {
     text-align: center;
+    font-family: 'Kalam', cursive;
+    height: 250px;
+    background-position: 0% 20%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    background-image: url("images/20190507_193154.jpg");
+}
+
+.header h1{
+    color:azure;
+    position: absolute;
+    top: 80%;
+    left: 80%;
+    transform: translate(0%, -50%);
+    font-size: 34px;
+    
+}
+
+#welcome h1{
+    margin: auto;
+    width:75%;
+    text-align: center;
+    padding: 10px;
+    padding-top: 50px;
+}
+
+#welcome h2{
+    margin: auto;
+    width:75%;
+    text-align: center;
+    padding: 50px;
+}
+
+form{
+    border: 3px solid black;
+    width: 45%;
+    margin-left: 25px;
+    padding: 25px;
+    float:left;
+}
+
+form #button{
+    float:right;
+    color: #fff !important;
+    font-family: 'Cinzel Decorative', cursive;
+    text-decoration: none;
+    font-size: 15px;
+    background: #2192BF;
+    padding: 20px;
+    margin-right: 20px;
+    border-radius: 25px;
+    display: inline-block;
+    border: none;
+    transition: all 0.4s ease 0s;
+}
+
+form #button:hover{
+    background: #434343;
+    letter-spacing: 1px;
+    -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+    -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+    box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
+    transition: all 0.4s ease 0s;
+}
+
+label{
+    display: inline-block;
+    float: left;
+    clear: left;
+    width: 100px;
+    text-align: left;
+}
+
+form label{
+    margin: 5px;
+}
+
+form input{
+    margin: 5px;
+}
+
+form #genre{
+    margin: 5px;
 }
 
 #navigation {
@@ -14,6 +104,11 @@ body {
     padding: 0;
     overflow: hidden;
     background-color: #333;
+}
+
+textarea{
+    margin-left: 15px;
+    font-size: 20px;
 }
 
 li {
