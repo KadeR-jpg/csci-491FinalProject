@@ -1,63 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>    
-        <title>The Maddest of Libs</title>
-        <link rel="stylesheet" href="style.css">
-        <script src="javascript.js"></script>
-        <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Kalam&display=swap" rel="stylesheet">
+<head>
+    <title>The Maddest of Libs</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="javascript.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik&family=Trispace:wght@200;400&display=swap"
+          rel="stylesheet">
+</head>
+<body>
+<div id="content">
+    <div class="header">
+        <h1>The Maddest of Libs</h1>
+        <nav>
+            <ul id="navigation">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="previous.html">Previous Stories</a></li>
+                <li><a href="newTemp.html">Submit a New Template</a></li>
+            </ul>
+        </nav>
+    </div>
 
+    <div id="welcome">
+        <h1>
+            Welcome Adventurer!
+        </h1>
 
-    </head>
-    <body>
-        <div id = "content">
-            <div class="header">   
-                <h1>The Maddest of Libs</h1>
-                <nav>
-                    <ul id="navigation">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="previous.html">Previous Stories</a></li>
-                        <li><a href="newTemp.html">Submit a New Template</a></li>
-                    </ul>
-                </nav>
-            </div>
-            
-            <div id = "welcome">
-                <h1>
-                    Welcome Adventurer!
-                </h1>
+        <h2>
+            Fill in the key words displayed to match what kind of story you would like to generate, then submit the
+            story to see your adventure begin.
+        </h2>
+    </div>
 
-                <h2>
-                    Fill in the key words displayed to match what kind of story you would like to generate, then submit the story to see your adventure begin.
-                </h2>
-            </div>
-            
-            <form>
-                <div id = "input">
-                    <label for="genre">Genre:</label>
-                    <input type="text" id="genre" name="genre"><br>
-                    <label for="conflict">Conflict:</label>
-                    <input type="text" id="conflict" name="conflict"><br>
-                    <label for="resolution">Resolution:</label>
-                    <input type="text" id="resolution" name="resolution"><br>
-                    <label for="protagonist">Protagonist:</label>
-                    <input type="text" id="protagonist" name="protagonist"><br>
-                    <label for="adjective">Adjective:</label>
-                    <input type="text" id="adjective" name="adjective"><br>
-                    <label for="propernoun">Proper Noun:</label>
-                    <input type="text" id="propernoun" name="propernoun"><br>
-                    <label for="adverb">Adverb:</label>
-                    <input type="text" id="adverb" name="adverb"><br>
-                    <label for="noun">Noun:</label>
-                    <input type="text" id="noun" name="noun"><br>
-                </div>
-                
-                <input id= "button" type="button" onclick="generateMadLib()" value="Generate Story">
-
-            </form>
-            
-            <textarea id="madLib" rows="16" cols="60">Your Adventure Awaits You Here...</textarea>
-            
-            
+    <form>
+        <div id="input">
+            <label for="genre">Genre:</label>
+            <input type="text" id="genre" name="genre"><br>
+            <label for="conflict">Conflict:</label>
+            <input type="text" id="conflict" name="conflict"><br>
+            <label for="resolution">Resolution:</label>
+            <input type="text" id="resolution" name="resolution"><br>
+            <label for="protagonist">Protagonist:</label>
+            <input type="text" id="protagonist" name="protagonist"><br>
+            <label for="adjective">Adjective:</label>
+            <input type="text" id="adjective" name="adjective"><br>
+            <label for="propernoun">Proper Noun:</label>
+            <input type="text" id="propernoun" name="propernoun"><br>
+            <label for="adverb">Adverb:</label>
+            <input type="text" id="adverb" name="adverb"><br>
+            <label for="noun">Noun:</label>
+            <input type="text" id="noun" name="noun"><br>
         </div>
-    </body>
+
+        <input id="button" type="button" onclick="generateMadLib()" value="Generate Story">
+
+    </form>
+
+    <textarea id="madLib" rows="16" cols="60">Your Adventure Awaits You Here...</textarea>
+
+
+</div>
+</body>
 </html>
