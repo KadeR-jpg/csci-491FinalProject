@@ -13,9 +13,9 @@
     <title>Document</title>
 </head>
 <header>
-    <h1 id="title">Interactive Story Generator</h1>
+    <h1 id="title">The Maddest Of Libs</h1>
     <div class="topNav">
-        <a href="{% url 'index' %}">Home</a>
+        <a href="{% url 'home' %}">Home</a>
         {% block sgPrev %}{% endblock sgPrev %}
         <a href="{% url 'storyGen' %}" class="storyGen">Story Generator</a>
         {% block sgNext %}{% endblock sgNext %}
@@ -24,6 +24,10 @@
 </header>
 <body>
 <div class="content">
+{% block next %}
+{% endblock next %}
+{% block prev %}
+{% endblock prev %}
     {% block homeContent %}
     {% endblock homeContent %}
     {% block generation %}

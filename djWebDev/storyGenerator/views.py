@@ -11,6 +11,18 @@ def index(request):
 def about(request):
     return render(request, 'storyGenerator/about.html')
 
+
 def storyGen(request):
     return render(request, 'storyGenerator/storyGen.html')
 
+
+def home(request):
+    return render(request, 'storyGenerator/homeContent.html')
+
+
+def next(request):
+    return render(request, 'storyGenerator/next.html')
+
+
+def prev(request):
+    return render(request, 'storyGenerator/prev.html')

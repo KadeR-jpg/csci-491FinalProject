@@ -1,0 +1,13 @@
+{% extends 'storyGenerator/index.html' %}
+{% block sgPrev %}
+    <a href="{% url 'prev' %}" class="previous">&laquo; Previous Story</a>
+{% endblock sgPrev %}
+{% block sgNext %}
+    <a href="{% url 'next' %}" class="next">Next Story &raquo;</a>
+{% endblock sgNext %}
+
+{% block next %}
+    <h2>
+        This is currently a placeholder for the "Previous Story"...Coming Soon
+    </h2>
+{% endblock next %}

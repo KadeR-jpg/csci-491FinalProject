@@ -9,7 +9,7 @@ html {
     font-family: 'Trispace', sans-serif;
     background-image: url("paperBCK.jpg");
     background-position: center;
-    background-repeat: no-repeat;
+    background-repeat: repeat-y;
     background-size: cover;
 }
 
@@ -103,6 +103,18 @@ body, html {
 
     text-decoration: underline;
 }
+
+.content .textArea-wrapper {
+    display: flex;
+    flex-direction: column;
+    /*justify-content: center;*/
+    align-self: center;
+}
+
+.content #madLib {
+    text-align: center;
+}
+
 
 /*end form rules*/
 
