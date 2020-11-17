@@ -1,31 +1,10 @@
 from django.db import models
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 2d57e5f7e46a170a7b31bf6e2f1e1cb89849d518
-class Story(models.Model):
-    protagonist = models.CharField(max_length=30)
-    antagonist = models.CharField(max_length=30)
-    setting = models.CharField(max_length=30)
-    SETTING_CHOICES = (
-        ('spc', 'SPACE'),
-        ('wstrn', 'WESTERN'),
-        ('ar', 'ANCIENT ROME'),
-        ('dysf', 'DYSTOPIA FUTURE')
-    )
-    plot = models.CharField(max_length=30)
-    conflict = models.CharField(max_length=30)
-    genre = models.CharField(max_length=60)
-<<<<<<< HEAD
-
 
 # Create your models here.
 
-=======
->>>>>>> 2d57e5f7e46a170a7b31bf6e2f1e1cb89849d518
 
-'''
+
 class Genre(models.Model):
     """Story genre"""
     name = models.CharField(max_length=200, help_text='Enter a genre for your story (e.g. Fantasy)')
@@ -44,7 +23,8 @@ class BlankStory(models.Model):
     adjectiveCount = models.IntegerField()
     nounCount = models.IntegerField()
     adverbCount = models.IntegerField()
-    plurNounCount = models.IntegerField()
+    properNounCount = models.IntegerField()
+    pronounCount = models.IntegerField()
     verbCount = models.IntegerField()
 
     genre = models.ManyToManyField(Genre, help_text='Select a genre for the story')
@@ -53,15 +33,6 @@ class BlankStory(models.Model):
 
 
 class WordSet(models.Model):
-    adverbs = models.TextField()
-    nouns = models.TextField()
-    plurNouns = models.TextField()
-    verbs = models.TextField()
-    adjectives = models.TextField()
+    words = models.CharField(help_text='make sure this is formatted as follows: noun1,noun2|verb1|adverb1,adverb2|pnoun1,pnoun2|pronoun1|adjective1,adjective2')
 
-<<<<<<< HEAD
     story = models.ForeignKey('BlankStory', on_delete=models.SET_NULL, null=True)
-=======
-    story = models.ForeignKey('BlankStory',on_delete=models.SET_NULL,null=True)
-'''
->>>>>>> 2d57e5f7e46a170a7b31bf6e2f1e1cb89849d518

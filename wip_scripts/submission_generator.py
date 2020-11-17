@@ -6,13 +6,14 @@ supported_types = {'noun':0,'verb':0,'adverb':0,'pnoun':0,'pronoun':0,'adjective
 
 sample_input = "Jimmy the <noun> was an <adjective> type of <pronoun>, with an <adjective> <noun> made out of many <noun>"
 
-sample_nouns = ['bird','eggplant','tomato seed']
-sample_verbs = []
-sample_adverbs = []
-sample_pnouns = []
-sample_pronouns = ['gremlin']
-sample_adjectives = ['small','green']
 full_sample = "bird,eggplant,tomato seed||||gremlin|small,green"
+
+full_user_sample = "noun1,noun2|verb1|adverb1,adverb2|pnoun1,pnoun2|pronoun1|adjective1,adjective2"
+
+''' 
+^^ make sure the string of inputs follows that template when pushed to the db
+that might need to be in JS so we can more easily get the field values from the form
+'''
 
 class MLGen():
 
@@ -24,14 +25,18 @@ class MLGen():
         self.pronoun_indices = []
         self.adjective_indices = []
 
-        self.replacement_nouns = sample_nouns
-        self.replacement_verbs = sample_verbs
-        self.replacement_adverbs = sample_adverbs
-        self.replacement_pnouns = sample_pnouns
-        self.replacement_pronouns = sample_pronouns
-        self.replacement_adjectives = sample_adjectives
+
+        # these will individually need to be pushed to the db
+        self.noun_count = 0
+        self.verb_count = 0
+        self.adverb_count = 0
+        self.pnoun_count = 0
+        self.pronoun_count = 0
+        self.adjective_count = 0
 
         self.safe_indices = ''
+
+        self.template = ''
 
     # I'm pretty much using this as a switch statement to handle all of the different supported word types
     def word_handler_handler(self,w_index,word):
@@ -65,23 +70,38 @@ class MLGen():
     '''Takes all of the word type indices and puts them into a single string that we can use in the DB
         I'm sure there's a better way to do that, but this will work for now. I'm no database expert'''
     def make_DB_safe_counters(self):
-        comp_list = ""
+        comp_list = "" #this holds the indices
         comp_list += ','.join(list(map(str,self.noun_indices)))
+        self.noun_count = len(self.noun_indices)
         comp_list += '|'
+
         comp_list += ','.join(list(map(str,self.verb_indices)))
         comp_list += '|'
+        self.verb_count = len(self.verb_indices)
+
         comp_list += ','.join(list(map(str,self.adverb_indices)))
         comp_list += '|'
+        self.adverb_count = len(self.adverb_indices)
+
         comp_list += ','.join(list(map(str,self.pnoun_indices)))
         comp_list += '|'
+        self.pnoun_count = len(self.pnoun_indices)
+
         comp_list += ','.join(list(map(str,self.pronoun_indices)))
         comp_list += '|'
+        self.pronoun_count = len(self.pronoun_indices)
+
         comp_list += ','.join(list(map(str,self.adjective_indices)))
+        self.adjective_count = len(self.adjective_indices)
+
         return comp_list
 
 
 
-    """ Main parser functionality """
+    """ 
+    Main parser functionality
+    in_template: story template from the db
+    """
     def gen_template(self,in_template):
         tokens = in_template.split(); # First we tokenize the string, to make the "parsing" easier
         ta = '' # definition of the re find object
@@ -97,15 +117,15 @@ class MLGen():
                 for word_type in supported_types: # now check if the tag matches one of the currently supported word types
                     if word == word_type:
                         self.word_handler_handler(ind, word)
-                    #else:
-                    #    print("That's not a supported word type")
 
         self.safe_indices = self.make_DB_safe_counters()
-        #for key in supported_types:
-            #print(supported_types[key])
+        #TODO: push all of the counters to the DB (not much I could do here to simplify that table, sorry aobut that)
 
-        #self.pop_template(in_template,None,None)
-        
+        return self.safe_indices
+
+        #TODO: take that return value and push it to the DB
+
+
     def strList_to_intList(self,l):
         to_ret = []
         if len(l)>0:
@@ -115,9 +135,17 @@ class MLGen():
         return to_ret
 
 
-    """Takes user input and populates a template with those responses"""
+    """
+    Takes user input and populates a template with those responses
+    in_template: same as with gen_template
+    user_responses: user input from the form on the story generator page. 
+            Keep this formatted like full_user_sample at the top of this file.
+    word_indices: the return value from gen_template
+
+    """
     def pop_template(self,in_template, user_responses, word_indices):
         mod_template = in_template.split()
+
         # splits the word index array into arrays per word type
         word_indices = word_indices.split('|')
         word_indices = [i.split(',') for i in word_indices]
@@ -127,6 +155,7 @@ class MLGen():
         pnoun_indices = self.strList_to_intList(word_indices[3])
         pronoun_indices = self.strList_to_intList(word_indices[4])
         adjective_indices = self.strList_to_intList(word_indices[5])
+
         # splits the user response array into separate arrays for each word type
         user_responses = user_responses.split('|')
         user_responses = [i.split(',') for i in user_responses]
@@ -155,14 +184,15 @@ class MLGen():
         for ind in range(len(adjective_indices)):
             mod_template[adjective_indices[ind]] = re.sub(tag_re,replacement_adjectives[ind],mod_template[adjective_indices[ind]])
         
-        print(' '.join(mod_template))
+        filled_story = ' '.join(mod_template)
+        return filled_story # this can be used to populate the text field
 
         
         
         
         
 
-genny = MLGen()
-genny.gen_template(sample_input)
-print(genny.make_DB_safe_counters())
-genny.pop_template(sample_input,full_sample,genny.safe_indices)
+#genny = MLGen()
+#genny.gen_template(sample_input)
+#print(genny.make_DB_safe_counters())
+#print(genny.pop_template(sample_input,full_sample,genny.safe_indices))
