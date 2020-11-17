@@ -13,6 +13,7 @@ htmlcov
 *.pyc
 djWebDev/djWebDev/__pycache__/
 djWebDev/storyGenerator/__pycache__/
+*.drawio
 
 #All text backup files
 *.bak

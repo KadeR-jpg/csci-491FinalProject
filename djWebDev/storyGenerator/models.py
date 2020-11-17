@@ -4,7 +4,6 @@ from django.db import models
 # Create your models here.
 
 
-
 class Genre(models.Model):
     """Story genre"""
     name = models.CharField(max_length=200, help_text='Enter a genre for your story (e.g. Fantasy)')
@@ -33,6 +32,8 @@ class BlankStory(models.Model):
 
 
 class WordSet(models.Model):
-    words = models.CharField(help_text='make sure this is formatted as follows: noun1,noun2|verb1|adverb1,adverb2|pnoun1,pnoun2|pronoun1|adjective1,adjective2')
+    words = models.CharField(max_length=200,
+                             help_text='make sure this is formatted as follows: noun1,'
+                                       'noun2|verb1|adverb1,adverb2|pnoun1,pnoun2|pronoun1|adjective1,adjective2')
 
     story = models.ForeignKey('BlankStory', on_delete=models.SET_NULL, null=True)
