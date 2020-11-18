@@ -19,3 +19,8 @@ djWebDev/storyGenerator/__pycache__/
 *.bak
 #All data-base files
 *.sqlite3
+# DJANGO
+*.log
+*.pot
+*.pyc
+__pycache__/local_settings.py
