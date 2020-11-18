@@ -33,6 +33,6 @@ class BlankStory(models.Model):
 
 
 class WordSet(models.Model):
-    words = models.CharField(help_text='make sure this is formatted as follows: noun1,noun2|verb1|adverb1,adverb2|pnoun1,pnoun2|pronoun1|adjective1,adjective2')
+    words = models.TextField(help_text='make sure this is formatted as follows: noun1,noun2|verb1|adverb1,adverb2|pnoun1,pnoun2|pronoun1|adjective1,adjective2')
 
     story = models.ForeignKey('BlankStory', on_delete=models.SET_NULL, null=True)
