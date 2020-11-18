@@ -79,17 +79,11 @@ WSGI_APPLICATION = 'djWebDev.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
+DATABASES = {'default': dj_database_url.config(
+    conn_max_age=600, ssl_require=True)}
 
 # Heroku: update DB config from $DATABASE_URL
 # db_from_env = dj_database_url.config(conn_max_age=500)
-DATABASES['default'] = dj_database_url.config(
-    conn_max_age=600, ssl_require=True)
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
@@ -132,7 +126,7 @@ USE_TZ = True
 # The absolute path to the directory where collectstatic will collect static files for deployment.
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
+STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
 
 # The URL to use when referring to static files (where they will be served from)
 
