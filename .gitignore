@@ -13,4 +13,14 @@ htmlcov
 *.pyc
 djWebDev/djWebDev/__pycache__/
 djWebDev/storyGenerator/__pycache__/
-djWebDev/templates/
+*.drawio
+
+#All text backup files
+*.bak
+#All data-base files
+*.sqlite3
+# DJANGO
+*.log
+*.pot
+*.pyc
+__pycache__/local_settings.py

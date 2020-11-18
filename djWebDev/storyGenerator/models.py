@@ -4,7 +4,6 @@ from django.db import models
 # Create your models here.
 
 
-
 class Genre(models.Model):
     """Story genre"""
     name = models.CharField(max_length=200, help_text='Enter a genre for your story (e.g. Fantasy)')
