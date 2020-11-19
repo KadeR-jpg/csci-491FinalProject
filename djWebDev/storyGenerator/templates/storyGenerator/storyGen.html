@@ -14,6 +14,8 @@
 				<option value = "horror">Horror</option>
 				<option value = "action">Action</option>
 				<option value = "comedy">Comedy</option>
+                <option value = "scifi">Sci-Fi</option>
+                <option value = "fantasy">Fantasy</option>
         </select><br>
         <label for="conflict">Conflict:</label>
         <input class="txtInput" type="text" id="conflict" name="conflict"><br>
@@ -67,6 +69,14 @@
                 + protagonist + ", with " + noun + " for feet and a huge mane of hair. But unicorns are rainbow and have a "
                 + adjective + " " + noun + " on their heads. Some " + propernoun + " don't believe in them. I would love to "
                 + verb + " a unicorn to faraway lands.";
+            
+            var madLib4 = "On a starship traveling across the galaxy, " protagonist " is attempting to find a new " 
+                + noun +". Navigating while " + verb + " will be difficult, but with the help of " 
+                + propernoun + ", this " + adjective + " adventure will be like nothing ever seen before.";
+                
+            var madLib5 = "After growing up as a dairy farmer, " + protagonist + " finds themselves being attacked by a "
+                + noun +". This attack causes the " + adjactive + " farmer to " + verb + " a nearby town called "
+                + propernoun + ". This is where" + protagonist + "'s story begins...";
 
             if (genre == "horror") {
                 madLib.innerHTML = madLib2;
@@ -74,6 +84,10 @@
                 madLib.innerHTML = madLib1;
             } else if (genre == "comedy") {
                 madLib.innerHTML = madLib3;
+            } else if (genre == "scifi") {
+                madLib.innerHTML = madLib4;
+            } else if (genre == "fantasy") {
+                madLib.innerHTML = madLib5;
             }
         }
     </script>
