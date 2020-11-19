@@ -1,21 +1,20 @@
 {% load static %}
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" type="text/css" href="{% static 'storyGenerator/index.css' %}">
-    {#    <link href="https://fonts.googleapis.com/css2?family=Changa&display=swap" rel="stylesheet">#}
+    <link rel="stylesheet" type="text/css" href="{% static 'storyGenerator/index.css' %}"/>
+    <link href="https://fonts.googleapis.com/css2?family=Changa&display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Rubik&family=Trispace:wght@200;400&display=swap"
-          rel="stylesheet">
-    <meta charset="UTF-8">
+          rel="stylesheet"/>
+    <meta charset="UTF-8"/>
     <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
     <title>Document</title>
 </head>
 <header>
     <h1 id="title">The Maddest Of Libs</h1>
     <div class="topNav">
-        <a href="{% url 'home' %}">Home</a>
         {% block sgPrev %}{% endblock sgPrev %}
         <a href="{% url 'storyGen' %}" class="storyGen">Story Generator</a>
         {% block sgNext %}{% endblock sgNext %}
@@ -24,18 +23,15 @@
 </header>
 <body>
 <div class="content">
-{% block next %}
-{% endblock next %}
-{% block prev %}
-{% endblock prev %}
-    {% block homeContent %}
-    {% endblock homeContent %}
+    {% block next %}
+    {% endblock next %}
+    {% block prev %}
+    {% endblock prev %}
     {% block generation %}
     {% endblock generation %}
     {% block about %}
     {% endblock about %}
 </div>
 </body>
-<footer>
-</footer>
+<footer></footer>
 </html>
