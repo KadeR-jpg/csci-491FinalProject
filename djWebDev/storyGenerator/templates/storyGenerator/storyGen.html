@@ -1,5 +1,5 @@
 {% extends 'storyGenerator/index.html' %}
-
+{% load static %}
 {% block sgPrev %}
     <a href="{% url 'prev' %}" class="previous">&laquo; Previous Story</a>
 {% endblock sgPrev %}
@@ -8,14 +8,14 @@
 {% endblock sgNext %}
 
 {% block generation %}
-    <form class="storyForm">
+    <form class="storyForm" id="story-form">
         <label for="genre">Genre:</label>
         <select class="txtInput" id="genre" name="genre">
-				<option value = "horror">Horror</option>
-				<option value = "action">Action</option>
-				<option value = "comedy">Comedy</option>
-                <option value = "scifi">Sci-Fi</option>
-                <option value = "fantasy">Fantasy</option>
+            <option value="horror">Horror</option>
+            <option value="action">Action</option>
+            <option value="comedy">Comedy</option>
+            <option value="scifi">Sci-Fi</option>
+            <option value="fantasy">Fantasy</option>
         </select><br>
         <label for="conflict">Conflict:</label>
         <input class="txtInput" type="text" id="conflict" name="conflict"><br>
@@ -34,62 +34,14 @@
         <label for="verb">Verb:</label>
         <input class="txtInput" type="text" id="verb" name="verb"><br>
         <div class="submitButton-wrapper">
-            <input id="button" class="submitButton" type="button" onclick="generateMadLib()" value="Generate Story">
+            <input type="submit" onclick="console.log('clicked');" value="Generate story">
         </div>
+        <script src="{% static 'storyGenerator/generation.js' %}"></script>
     </form>
     <div class="textArea-wrapper">
-        <label for="madLib"></label><textarea id="madLib" rows="16"
-                                              cols="60">Your Adventure Awaits You Here...</textarea>
+        <label for="madLib"></label>
+        <textarea id="madLib" rows="16"
+                  cols="60">Your Adventure Awaits You Here...</textarea>
     </div>
-    <script>
-        function generateMadLib() {
-            let madLib = document.getElementById("madLib");
-            let genre = document.getElementById("genre").value;
-            let conflict = document.getElementById("conflict").value;
-            let resolution = document.getElementById("resolution").value;
-            let protagonist = document.getElementById("protagonist").value;
-            let adjective = document.getElementById("adjective").value;
-            let verb = document.getElementById("verb").value;
-            let propernoun = document.getElementById("propernoun").value;
-            let adverb = document.getElementById("adverb").value;
-            let noun = document.getElementById("noun").value;
-
-            var madLib1 = "A vacation is when you take a trip to some " + adjective + " place with your "
-                + adjective + " family. Usually you go to some place that is near a/an " + noun + " or up a/an "
-                + noun + ". A good vacation place is one where you can ride " + propernoun + " or play " + noun +
-                " or go hunting for deer. I like to spend my time climbing " + adverb + ".";
-
-            var madLib2 = "If zombies attacked a picnic, what would they " + verb + " eat? Everybody knows zombies love to "
-                + verb + " " + noun + ", but did you know they also enjoy " + propernoun + " and even frogs? The best "
-                + noun + " for a zombie picnic is when the moon is " + adjective + ". At least one zombie will bring blood "
-                + " to drink, and it's not a picnic without " + protagonist + " with extra blood on top. After eating zombies will "
-                + verb + " " + adjective + " games like kick the body part.";
-
-            var madLib3 = "Unicorns aren't like other " + propernoun + " they're " + adjective + ". They look like "
-                + protagonist + ", with " + noun + " for feet and a huge mane of hair. But unicorns are rainbow and have a "
-                + adjective + " " + noun + " on their heads. Some " + propernoun + " don't believe in them. I would love to "
-                + verb + " a unicorn to faraway lands.";
-            
-            var madLib4 = "On a starship traveling across the galaxy, " protagonist " is attempting to find a new " 
-                + noun +". Navigating while " + verb + " will be difficult, but with the help of " 
-                + propernoun + ", this " + adjective + " adventure will be like nothing ever seen before.";
-                
-            var madLib5 = "After growing up as a dairy farmer, " + protagonist + " finds themselves being attacked by a "
-                + noun +". This attack causes the " + adjactive + " farmer to " + verb + " a nearby town called "
-                + propernoun + ". This is where" + protagonist + "'s story begins...";
-
-            if (genre == "horror") {
-                madLib.innerHTML = madLib2;
-            } else if (genre == "action") {
-                madLib.innerHTML = madLib1;
-            } else if (genre == "comedy") {
-                madLib.innerHTML = madLib3;
-            } else if (genre == "scifi") {
-                madLib.innerHTML = madLib4;
-            } else if (genre == "fantasy") {
-                madLib.innerHTML = madLib5;
-            }
-        }
-    </script>
 
 {% endblock generation %}
